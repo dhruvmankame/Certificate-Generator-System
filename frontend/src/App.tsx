@@ -32,9 +32,9 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50 text-gray-900 font-sans flex flex-col">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans flex flex-col transition-colors duration-200">
         <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-        <main className="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+        <main className="flex-grow container mx-auto px-4 pt-24 pb-6 sm:pt-28 sm:pb-8 max-w-6xl">
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="/login" element={
@@ -50,7 +50,13 @@ function App() {
             <Route path="*" element={<Navigate to="/dashboard" />} />
           </Routes>
         </main>
-        <Toaster position="top-right" />
+        <Toaster 
+          position="top-right" 
+          toastOptions={{
+            className: 'dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700',
+            duration: 3000,
+          }}
+        />
       </div>
     </Router>
   );
