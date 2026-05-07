@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
@@ -7,11 +7,11 @@ import VerifyCertificate from './pages/VerifyCertificate';
 import Login from './pages/Login';
 
 // Protected Route Wrapper
-const ProtectedRoute = ({ children, isAuthenticated }: { children: JSX.Element, isAuthenticated: boolean }) => {
+const ProtectedRoute = ({ children, isAuthenticated }: { children: React.ReactNode, isAuthenticated: boolean }) => {
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
-  return children;
+  return <>{children}</>;
 };
 
 function App() {

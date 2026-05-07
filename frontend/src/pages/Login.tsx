@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Lock, Award } from 'lucide-react';
+import { Lock } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 interface Props {
